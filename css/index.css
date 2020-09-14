@@ -1,0 +1,776 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.cf::after{
+    display: block;
+    clear: both;
+    content: "";
+}
+.bx{
+    width: 90%;
+    margin: auto;
+}
+.nav{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+    border-bottom: 4px solid rgb(243, 75, 75);
+}
+.warp{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 10px 0;
+}
+.logo,.logo img{
+    display: block;
+    width: 200px;
+}
+.dh{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.dh li a{
+    display:block;
+    padding: 0 10px;
+    font-size: 18px;
+    color: rgb(94, 92, 92);
+    border-right: 1px solid rgb(90, 88, 88);
+    text-decoration: none;
+}
+.dh li .fenx{
+    border: none;
+}
+.dh li .red{
+    color: #f99;
+}
+.carousel-inner .item img{
+    width: 100%;
+    height: 400px;
+}
+.body{
+    margin-top: 150px;
+}
+.huo{
+    margin-top: 40px;
+    border-bottom: 1px solid rgb(177, 176, 176);
+}
+.huo h3{
+    font-size: 18px;
+    float: left;
+}
+.huo a{
+    display: block;
+    float: right;
+    margin-top: 18px;
+    color: rgb(128, 121, 121);
+    font-size: 16px;
+    text-decoration: none;
+}
+.miao{
+    border: 10px solid rgb(243, 241, 241);
+    margin-top: 30px;
+}
+.miao a,.miao img{
+    display: block;
+    width: 100%;
+}
+.te{
+    margin-top: 20px;
+    display: flex;
+    /* justify-content: space-between; */
+}
+.te .jiu{
+    flex: 1;
+}
+.te .shi{
+    flex: 1.5;
+    margin: 0 25px;
+}
+.te .app{
+    flex: 1;
+}
+.te div{
+    border: 10px solid rgb(243, 241, 241);
+}
+.te a,.te img{
+    display: block;
+    width: 100%;
+}
+.nan,.nv{
+    margin-top: 40px;
+    box-sizing: border-box;
+    border: 10px solid rgb(243, 241, 241);
+}
+.jx a,.jx img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.girl,.boy{
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.girl li,.boy li{
+    width: 100%;
+    margin: 0 15px;
+}
+.girl li img,.boy li img{
+    width: 100%;
+    height: 125px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.girl p,.boy p{
+    width: 100%;
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.girl span,.boy span{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(253, 65, 65);
+}
+.jx .tp img{
+    max-height: 265.56px;
+}
+.dl{
+    width: 35%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 30px 20px;
+    border-radius: 10px;
+    float: right;
+    margin-top: 40px;
+    margin-right: 110px;
+}
+.back{
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height:100vh;
+}
+.back iframe{
+    min-height: 100vh;
+}
+.welcome{
+    width: 100%;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(235, 229, 229);
+}
+.zhuti{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.welcome h3{
+    color: #333333;
+    font-size: 14px;
+    margin: 0;
+    line-height: 30px;
+}
+.join a{
+    line-height: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    color: rgb(207, 26, 26);
+}
+.join span{
+    margin: 0 10px;
+}
+.zhu{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.zhu button{
+    width: 150px;
+    background-color: rgb(25, 93, 240);
+    color: #fff;
+    border: none;
+}
+.dl>h3{
+    width: 100%;
+    line-height: 30px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.ce button{
+    width: 100%;
+    margin: 0 auto;
+}
+.temai{
+    padding: 0 60px;
+    width: 100%;
+    background-color: rgb(243, 75, 75);
+}
+.temai a{
+    display: block;
+    float: left;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+.temai .li1{
+    display: block;
+    float: left;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+.form-group{
+    position: relative;
+}
+.yhtx{
+    position: absolute;
+    color: red;
+    font-size: 12px;
+    bottom: -30px;
+    left: 0;
+    display: none;
+}
+.carousel-indicators .dian{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.line{
+    margin-top: 100px;
+    border-top: 1px solid rgb(245, 66, 66);
+}
+.bottom{
+    width: 85%;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.ewm{
+    display: flex;
+    padding-top: 40px;
+    margin-right: 1px;
+    justify-content: space-between;
+}
+.ewm li {
+    width: 150px;
+    margin: 0 20px;
+}
+.ewm li span{
+    display: block;
+    padding: 0 5px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+    
+}
+.ewm li img {
+    width: 100%;
+}
+.lx{
+    /* padding-left: 50px; */
+    color: #666666;
+    /* border-left: 1px solid #333333; */
+}
+.lx h3{
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 18px;
+}
+.lx p{
+    font-size: 14px;
+    line-height: 27px;
+}
+.xi{
+    width: 1px;
+    background-color: #333333;
+}
+.botul{
+    display: table;
+    margin: auto;
+}
+.botul li{
+    float: left;
+    border-left: 1px solid #333333;
+}
+.botul .li1{
+    border: none;
+}
+.botul li a{
+    display: inline-block;
+    font-size: 14px;
+    color: #666666;
+    margin: 0 6px;
+    text-decoration: none;
+}
+.botul li a:hover{
+    color: #f99;
+}
+.hei{
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    background-color: rgb(61, 61, 61);
+    color: rgb(179, 179, 179);
+    font-size: 14px;
+}
+.pp p{
+    text-align: center;
+    line-height: 20px;
+}
+.pp p span{
+    cursor: pointer;
+}
+.pp p .span1{
+    margin: 0 40px;
+}
+
+
+
+
+.fenlei{
+    margin-top: 180px;
+}
+.sous{
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 40px;
+}
+.sous input{
+    width: 500px;
+    height: 30px;
+    padding: 5px 0;
+    border-radius: 5px;
+    outline: none;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 1px solid rgb(253, 65, 65);
+}
+.sous button{
+    height: 30px;
+}
+.fen li{
+    margin: 0;
+    padding: 0;
+    /* border-radius: 50%; */
+    
+}
+.lei{
+    padding: 5px 20px;
+    /* background-color: rgb(189, 124, 45); */
+}
+.lei img{
+    display: block;
+    width: 100%;
+    /* width: 100px; */
+    margin: auto;
+    border-radius: 50%;
+    /* border: 1px solid #666666; */
+}
+.lei h4{
+    text-align: center;
+    color: #333333;
+}
+.leiii{
+    width: 100%;
+    border: 1px solid #dddcdc;
+    border-radius: 50%;
+}
+.bao{
+    color: rgb(253, 65, 65);
+    padding: 10px 0px;
+    border-bottom: 1px solid #777777;
+}
+.tiao{
+    display: block;
+}
+.shop{
+    padding: 0 20px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.shop:hover{
+    border: 1px solid #f56161;
+}
+.shopimg{
+    padding: 0px 20px;
+    height: 230px;
+}
+.shopimg img{
+    width: 100%;
+    height: 100%;
+}
+.shop p{
+    padding: 0 5px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #666666;
+    height: 40px;
+    overflow: hidden;
+}
+.jia{
+    display: flex;
+    padding: 0px 5px 15px;
+    justify-content: space-between;
+}
+.jia .sp1{
+    font-size: 20px;
+    color: #fc4e4e;
+}
+.jia .sp2{
+    font-size: 14px;
+    color: #666666;
+    line-height: 30px;
+}
+.pageNav{
+    margin-top: 10px;
+    width: 280px;
+    margin: 30px auto;
+}
+.pageNav ul{
+    list-style: none;
+    overflow: hidden;
+}
+.pageNav ul li{
+    float: left;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background: orange;
+}
+.pageNav ul li.cur{
+    background-color: yellowgreen;
+}
+
+
+
+
+.shopxq{
+    margin-top: 180px;
+}
+.kuang{
+    border: 1px solid rgb(223, 223, 223);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.loupe{
+    width: 400px;
+    position: relative;
+}
+.big{
+    width: 100%;
+    height: 400px;
+    cursor: move;
+    position: relative;
+}
+.big img{
+    width: 100%;
+    height: 100%;
+}
+.hui{
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.fdj{
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 430px;
+    display: none;
+}
+.fdj img{
+    width: 800px;
+    height: 800px;
+}
+.small{
+    margin-top: 20px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    /* justify-content: space-between; */
+}
+.small li{
+    /* flex: 1; */
+    width: 24%;
+    margin-right: 1%;
+    border: 1px solid #c7c4c4;
+}
+.small li:hover{
+    border: 1px solid #f35555;
+}
+.small .no{
+    margin-right: 0;
+}
+.small li img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.jies{
+    width: 55%;
+}
+.title{
+    font-size: 25px;
+    color: #333333;
+    margin-top: 0;
+}
+.qian{
+    line-height: 30px;
+    font-size: 14px;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 0;
+    background-color: rgb(255, 189, 189);
+    padding: 8px 0;
+}
+.qian span{
+    display: block;
+   
+}
+.many{
+    font-size: 30px;
+    color: #ff3e3e;
+    margin-left: 10px;
+    font-weight: 600;
+}
+.yh{
+    line-height: 40px;
+    background-color: #ffe3e3;
+    margin-bottom: 0;
+    color: #333333;
+}
+.quan{
+    display: block;
+    line-height: 40px;
+    background-color: #ffe3e3;
+    border-top: 1px solid rgb(148, 146, 146);
+    color: #ff1717;
+}
+.liang{
+    margin-top: 10px;
+}
+.number{
+    margin-top: 60px;
+}
+.number span{
+    display: block;
+    float: left;
+}
+.number input{
+    display: block;
+    float: left;
+    width: 40px;
+    height: 30px;
+    text-align: right;
+    line-height: 26px;
+    text-align: center;
+}
+.number .xs{
+    width: 35px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #c5c1c1;
+    margin: 0 5px;
+}
+.buy{
+    margin-top: 40px;
+}
+.buy a{
+    display: block;
+    float: left;
+    padding: 10px 30px;
+    text-align: center;
+    background-color: #ee642d;
+    margin-right: 20px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+
+
+
+
+
+.slh{
+    text-align: center;
+}
+.gw{
+    color: #fc4e4e;
+}
+.tr1 .td2 img{
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+.up,.jian{
+    width: 30px;
+    text-align: center;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+.shu{
+    display:block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 5px;
+    float: left;
+    border: 1px solid #a0a0a0;
+}
+.red{
+    color: #fc4e4e;
+    cursor: pointer;
+}
+.bj{
+    background-color: rgb(248, 171, 56);
+}
+.zongje{
+    color: #ff3e3e;
+    font-weight: 600;
+}
+
+
+
+.diz{
+    margin-top: 150px;
+    background-color: #ff3e3e;
+}
+.h2{
+    color: #fff;
+    padding: 10px 0;
+}
+.map{
+    margin-top: 40px;
+}
+.mapp p{
+    line-height: 40px;
+    color: #a3a2a2;
+}
+.mapp p input{
+    width: 40%;
+    padding: 0 20px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: #000;
+    border-bottom: 1px solid #ccc7c7;
+}
+
+
+.jsbj{
+    background-color: #fab277;
+}
+.ti{
+    text-align: right;
+}
+.ti input{
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align:center;
+    color: #fff;
+    font-size: 20px;
+    background-color: #ff1717;
+    outline: none;
+
+}
+.dizhi{
+    position: relative;
+}
+.tog{
+    width: 50%;
+    position: absolute;
+    display: none;
+    background-color: #fff;
+}
+.tianj{
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    cursor: pointer;
+    border: 1px dashed rgb(247, 91, 91);
+}
+.butt{
+    padding: 10px 0;
+}
+.butt input{
+    display: block;
+    width: 60px;
+    height: 30px;
+    background-color: rgb(245, 163, 10);
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    margin-left: 20px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+.huoo{
+    margin-top: 10px;
+    padding: 15px 20px;
+    border: 1px solid #a0a0a0;
+    color: #f72828;
+}
+.huoo input{
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+.huoo p{
+    float: left;
+    margin-bottom: 0;
+}
+.huoo button{
+    float: right;
+    margin-bottom: 0;
+}
+.jsimg img{
+    width: 40px;
+    height: 40px;
+}

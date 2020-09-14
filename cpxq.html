@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jQuery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <div class="welcome">
+            <h3>欢迎来到拼多多商城</h3>
+            <div class="join">
+                <a class="denl" target="blank" href="denglu.html">登录</a>
+                <span>|</span>
+                <a class="zhc" target="blank" href="zhuce.html">注册</a>
+            </div>
+        </div>
+        <div class="bx">
+            <div class="warp">
+                <a class="logo" href=""><img src="./imges/pdd_logo_v2.png" alt=""></a>
+                <ul class="dh">
+                    <li><a class="red" href="">首页</a></li>
+                    <li><a href="">商家入驻</a></li>
+                    <li><a href="">热点资讯</a></li>
+                    <li><a href="">社会招聘</a></li>
+                    <li><a href="">校园招聘</a></li>
+                    <li><a href="">招采平台</a></li>
+                    <li><a href="">帮助中心</a></li>
+                    <li><a href="">举报平台</a></li>
+                    <li><a class="fenx" href="">分享赚钱</a></li>
+                </ul>
+            </div>
+        </div>
+       
+    </div>
+    <div class="bx shopxq">
+        <div class="kuang">
+            <div class="loupe">
+                <div class="big">
+                    
+                </div>
+                <div class="fdj">
+                   
+                </div>
+                <ul class="small">
+                    <!-- <li><img src="./imges/timg 4.jpg" alt=""></li>
+                    <li><img src="./imges/timg 4.jpg" alt=""></li>
+                    <li><img src="./imges/timg 4.jpg" alt=""></li>
+                    <li class="no"><img src="./imges/timg 4.jpg" alt=""></li> -->
+                </ul>
+            </div>  
+            <div class="jies">
+                <!-- <h3 class="title">的护肤的是否还记得舒服了快递师傅的说法是经典款</h3>
+                <p class="qian">价格:<span class="many">￥445</span></p>
+                
+                <p class="yh">优惠活动:满10减5</p>
+                <a class="quan" href=""> 点击领取优惠券</a>
+                <p class="liang">月销量：44件</p> -->
+                <div class="number cf">
+                    <span>数量：</span>
+                    <input class="down" type="button" value="-">
+                    <span class="xs">1</span>
+                    <input class="upp" type="button" value="+">
+                </div>
+                <div class="buy">
+                    <a class="gou" href="">立即购买</a>
+                    <a class="che" href="javascript:;">加入购物车</a>
+                    <a class="gou" href="gwc.html">查看购物车</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+
+
+
+    <script>
+        var str = decodeURI(location.search.slice(location.search.indexOf("=")+1));
+        console.log(str)
+
+
+        $.ajax({
+            url:"http://127.0.0.1/w/website/findGoodsDetail",
+            dype:"get",
+            data:{
+                info:str
+            },
+            success:function(r){
+                var a = r.data.detail.tbk_item_info_get_response.results.n_tbk_item;
+                $(".big").append(
+                        `<img src="${a[0].pict_url}" alt="">`
+                )
+                $(".fdj").append(
+                        `<img src="${a[0].pict_url}" alt="">`
+                )
+                var b = "";
+                for(var i = 0; i < a[0].small_images.string.length; i++){
+                    $(".small").append(
+                        `<li><img src="${a[0].small_images.string[i]}""></li>`
+                    )
+                    if(i == a[0].small_images.string.length -1){
+                        $($(".small li")[i]).addClass("no");
+                    }
+                }
+                $(".small li").click(function(){
+                    $(".big").html($(this).html());
+                    $(".fdj").html($(this).html());
+                })
+                console.log(r)
+                $(".number").before(
+                    `<h3 class="title">${a[0].title}</h3>
+                    <p class="qian">价格:<span class="many">￥${a[0].zk_final_price}</span></p>
+                
+                    <p class="yh">优惠活动:满10减5</p>
+                    <a class="quan" href=""> 点击领取优惠券</a>
+                    <p class="liang">月销量：${a[0].material_lib_type}万件</p>`
+                )
+                $(".che").click(function(){
+                    var aaa = JSON.parse(localStorage.getItem("cp"))
+                    if(aaa == null){
+                        aaa = [{
+                            id:a[0].num_iid,
+                            img:a[0].pict_url,
+                            xx:a[0].title,
+                            jg:a[0].zk_final_price,
+                            sl:parseInt($(".xs").text())
+                        }]
+                    }else{
+                        var res = true;
+                        
+                       for(var i = 0; i <aaa.length; i++){
+                           if(Number(str) === aaa[i].id){
+                               var b = aaa.splice(i,1)[0]
+                                b.sl = parseInt(b.sl) + parseInt($(".xs").text());
+                                aaa.push(b);
+                                res = false;
+                                break;
+                           }
+                           
+                       }
+                       if(res){
+                        aaa.push({
+                                id:a[0].num_iid,
+                                img:a[0].pict_url,
+                                xx:a[0].title,
+                                jg:a[0].zk_final_price,
+                                sl:parseInt($(".xs").text())
+                                })
+                       }
+                   
+                        
+                    }
+                    localStorage.setItem("cp", JSON.stringify(aaa))
+                   console.log(JSON.parse(localStorage.getItem("cp")))
+                    alert("已添加购物车")
+                })
+            }
+        })
+        var a = $(".loupe")[0].offsetLeft;
+        var b = $(".loupe")[0].offsetTop;
+        $(".big").mouseenter(function(){
+            $(".big").append($("<div>").addClass("hui"));
+            $(".fdj").css("display","block");
+            var spw = $(".hui")[0].clientWidth;
+            var sph = $(".hui")[0].clientHeight;
+            var maxw = $(".big")[0].clientWidth - $(".hui")[0].clientWidth;
+            var maxh = $(".big")[0].clientHeight - $(".hui")[0].clientWidth;
+            var imgw = $(".fdj img")[0].clientWidth - $(".fdj")[0].clientWidth;
+            var imgh = $(".fdj img")[0].clientHeight - $(".fdj")[0].clientHeight;
+            $(".big").mousemove(function(e){
+                var sw = e.pageX - a - spw / 2;
+                var sh = e.pageY - b - sph / 2;
+                sw = sw < 0 ? 0 : sw;
+                sw = sw > maxw ? maxw : sw;
+                sh = sh < 0 ? 0 : sh;
+                sh = sh > maxh ? maxh :sh;
+                $(".hui").css({
+                    "left":sw,
+                    "top":sh
+                })
+                $(".fdj img").css({
+                    "margin-left":-imgw * sw / maxw,
+                    "margin-top":-imgh * sh / maxh
+                })
+            })
+           
+        })
+        $(".big").mouseleave(function(){
+            $(".hui").remove();
+            $(".fdj").css("display","none");
+        })
+
+        $(".down").click(function(){
+            var a = parseInt($(".xs").html()) - 1;
+            if(a > 0) {
+                $(".xs").html(a);
+            }
+        })
+        $(".upp").click(function(){
+            var a = parseInt($(".xs").html()) + 1;
+            $(".xs").html(a);
+        })
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+	"result" : [
+		{
+            "images" 	: "./imges/timg 3.jpg",
+            "title" 	: "2020秋季潮流女装新款",
+			"danjia" 	: "129",
+			"num" 	: 1	
+		},
+		{
+            "images" 	: "./imges/timg 4.jpg",
+            "title" 	: "2020秋季时尚男装新款",
+			"danjia" 	: "229",
+			"num" 	: 2	
+		},
+		{
+            "images" 	: "./imges/timg 3.jpg",
+            "title" 	: "蒸煮一体全自动智能电饭煲/懒人专用/快捷方便家庭早餐",
+			"danjia" 	: "59",
+			"num" 	: 3
+		},
+		{
+            "images" 	: "./imges/timg 4.jpg",
+            "title" 	: "2020秋季新款宝宝装/可爱潮流/家庭宝宝必买",
+			"danjia" 	: "319",
+			"num" 	: 1	
+		}
+	]
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dizhi/city-picker/dist/css/city-picker.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jQuery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./dizhi/city-picker/docs/js/city-picker.data.js"></script>
+    <script src="./dizhi/city-picker/docs/js/city-picker.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <div class="bx">
+            <div class="warp">
+                <a class="logo" href=""><img src="./imges/pdd_logo_v2.png" alt=""></a>
+                <ul class="dh">
+                    <li><a class="red" href="">首页</a></li>
+                    <li><a href="">商家入驻</a></li>
+                    <li><a href="">热点资讯</a></li>
+                    <li><a href="">社会招聘</a></li>
+                    <li><a href="">校园招聘</a></li>
+                    <li><a href="">招采平台</a></li>
+                    <li><a href="">帮助中心</a></li>
+                    <li><a href="">举报平台</a></li>
+                    <li><a class="fenx" href="">分享赚钱</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <div class="diz">
+        <div class="bx">
+            <h2 class="h2">购物车结算:</h2>
+        </div>
+        
+    </div>
+    <div class="bx">
+        <div class="dizhi">
+            <div class="tianj">
+                +添加收货地址
+            </div>
+            <div class="dizhiguanli">
+                
+                
+            </div>
+            <div class="tog">
+                <div style="position: relative;" class="map">
+                    <h3>选择新的收货地址：</h3>
+                    <input class="form-control" readonly type="text" data-toggle="city-picker" style="width: 45%;">
+                </div>
+                
+                <div class="mapp">
+                    <p class="p1">详细地址：<input type="text"></p>
+                    <p class="p2">姓名: <input type="text"></p>
+                    <p class="p3">电话: <input type="text"></p>
+                </div>
+                <div class="butt cf">
+                    <input class="qr" type="button" name="" id="" value="确认">
+                    <input type="button" name="" id="" value="取消">
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>确认商品信息：</h3>
+            <table class="table">
+                <tr class="jsbj">
+                    <th>商品信息</th>
+                    <th>jies</th>
+                    <th>单价</th>
+                    <th class="sl"> 数量</th>
+                    <th>金额</th>
+                </tr>
+                <tr>
+                    <td class="jsimg"><img src="./imges/timg 3.jpg" alt=""></td>
+                    <td>sdasdsadsaddas</td>
+                    <td>sss</td>
+                    <td>sss</td>
+                    <td>ss</td>
+                </tr>
+            </table>
+        </div>
+        <div class="ti">
+            <p>总金额：￥<span></span>元</p>
+            <input class="mai" type="button" value="提交订单">
+        </div>
+    </div>
+   
+
+    <script>
+        $(".qr").click(function(){
+            $(".dizhiguanli").append(
+                `<div class="huoo cf">
+                    <input type="radio">
+                    <p>${$(".form-control").val()+$(".p1").text()+$(".p2").text()+$(".p3").text()}</p>
+                    <button class="shanchu">删除</button>
+                </div>`
+            )
+            $(".shanchu").click(function(){
+            $(this).parent().remove()
+            })
+            $(".tog").slideUp()
+        })
+        
+        $(".tianj").click(function(){
+            $(".tog").slideToggle()
+        })
+        $(".mai").click(function(){
+            if(Boolean($(".form-control").val()) != true){
+                alert("请选择正确的省区");
+                return;
+            }
+            if(Boolean($(".p1 input").val()) != true){
+                alert("收货地址不能为空");
+                return;
+            }
+            if(Boolean($(".p2 input").val()) != true){
+                alert("请输入收货人姓名");
+                return;
+            }
+            if(Boolean($(".p3 input").val()) != true){
+                alert("请输入联系电话");
+                return;
+            }
+        })
+        var aa = JSON.parse(localStorage.getItem("jiesuan"))
+        console.log(aa)
+        // for(var i = 0; i < aa.length; i++){
+        //     $(".jsbj").append(
+        //         `<tr>
+        //             <td>${aa[i].img}</td>
+        //             <td>${aa[i].jg}</td>
+        //             <td>${aa[i].sl}</td>
+        //             <td>${aa[i].jg * aa[i].sl}</td>
+        //         </tr>`
+        //     )
+        // }
+    </script>
+</body>
+</html>

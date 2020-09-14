@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jQuery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="back zhuce">
+        <iframe id="iframe" src="https://www.jq22.com/demo/jQuery-yezi-141217210850" frameborder="0" width="100%"></iframe>
+       <div class="zhuti">
+            <div class="welcome">
+                <h3>欢迎来到拼多多商城</h3>
+                <div class="join">
+                    <a href="denglu.html">登录</a>
+                    <span>|</span>
+                    <a href="javascript:;">注册</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="dl">
+                    <h3>用户注册</h3>
+                     <form>
+                         <div class="form-group">
+                           <label for="exampleInputEmail1">设置用户名</label>
+                           <input type="texr" class="form-control yh" id="exampleInputEmail1" placeholder="请输入用户名">
+                           <p class="yhtx">*用户名不能为空且长度大于3</p>
+                         </div>
+                         <div class="form-group">
+                           <label for="exampleInputPassword1">设置登录密码</label>
+                           <input type="password" class="form-control pas" id="exampleInputPassword1" placeholder="Password">
+                         </div>
+                         <!-- <div class="form-group">
+                           <label for="exampleInputPassword1">确认登录密码</label>
+                           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                         </div> -->
+                         <div class="form-group">
+                           <label for="exampleInputPassword1">邮箱</label>
+                           <input type="email" class="form-control eml" id="exampleInputPassword1" placeholder="请输入邮箱">
+                         </div>
+                         <div class="form-group">
+                           <label for="exampleInputPassword1">手机号</label>
+                           <input type="text" class="form-control ipn" id="exampleInputPassword1" placeholder="请输入手机号">
+                         </div>
+                         <div class="form-group">
+                            <label for="exampleInputEmail1">验证码</label>
+                           <input type="text" class="form-control" id="exampleInputPassword1" placeholder="请输入验证码">
+                         </div>
+                         <div class="zhu ce">
+                            <button type="button" class="btn btn-default">立即注册</button>
+                         </div>
+                         
+                     
+                     </form>
+                 </div>
+             </div>
+       </div>
+    </div>
+
+
+    <script>
+        
+        $(".yh").blur(function(){
+            var yhzz = new RegExp("[A-Za-z0-9_\-\u4e00-\u9fa5]+");
+            if($(".yh").val() == "" || $(".yh").val().length < 3 || yhzz.test($(".yh").val()) == false){
+                $(".yhtx").css("display","block")
+                // return;
+            }else(
+                $(".yhtx").css("display","none")
+            )
+        })
+      
+     
+        
+       
+        $(".btn").click(function(){
+            console.log(1)
+            var a = {
+                    username:$(".yh").val(),
+                    password:$(".pas").val(),
+                    email:$(".eml").val(),
+                    phone:$(".ipn").val()
+        }
+        console.log(a)
+            $.ajax({
+                url:"http://192.168.1.107:3000/users/register",
+                type:"post",
+                data:a,
+                success:function(res){
+                    if(res.state == 0){
+                        alert("注册成功");
+                        window.location = "denglu.html";
+                    }else if(res.state == 1){
+                        alert("用户名已存在")
+                    }else(
+                        alert("请输入正确的信息")
+                    )
+                    console.log(res)
+                   
+                }
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jQuery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="bx">
+        <h3 class="gw">购物车：</h3>
+        <table class="table">
+            <tr class="bj">
+                <th><input class="all" type="checkbox">全选</th>
+                <th>商品信息</th>
+                <th>单价</th>
+                <th class="sl"> 数量</th>
+                <th>金额</th>
+                <th>操作</th>
+            </tr>
+            <!-- <tr class="tr1">
+                <td><input class="dx" type="checkbox"></td>
+                <td class="td2"><img src="./imges/timg 3.jpg" alt=""><p>哈萨克假大空是的撒大会撒娇的哈时间的话</p></td>
+                <td class="dj">139</td>
+                <td class="slh cf">
+                    <input class="jian" type="button" value="－">
+                    <span class="shu">1</span>
+                    <input class="up" type="button" value="+">
+                </td>
+                <td class="je">139</td>
+                <td class="red">删除</td>
+            </tr>
+            <tr class="tr1">
+                <td><input class="dx" type="checkbox"></td>
+                <td class="td2"><img src="./imges/timg 3.jpg" alt=""><p>哈萨克假大空是的撒大会撒娇的哈时间的话</p></td>
+                <td class="dj">39</td>
+                <td class="slh cf">
+                    <input class="jian" type="button" value="－">
+                    <span class="shu">1</span>
+                    <input class="up" type="button" value="+">
+                </td>
+                <td class="je">139</td>
+                <td class="red">删除</td>
+            </tr> -->
+            <tr class="over">
+                <td>已选:<span class="zongs">0</span>件</td>
+                <td class="zzz">总金额：￥<span class="zongje">0</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button class="maidan" type="button" class="btn btn-warning">结算</button></td>
+
+            </tr>
+        </table>
+
+
+        <script>
+            //  $.ajax({
+            //     url: "./json/gwc.json",
+            //     type:"get",
+            //     data:{},
+            //     success:function(ss){
+            //         console.log(ss)
+            //         for(var i = 0; i < ss.result.length; i++){
+            //             $(".over").before(
+            //                 `<tr class="tr1">
+            //                 <td><input class="dx" type="checkbox"></td>
+            //                 <td class="td2"><img src="${ss.result[i].images}" alt=""><p>${ss.result[i].title}</p></td>
+            //                 <td class="dj">${ss.result[i].danjia}</td>
+            //                 <td class="slh cf">
+            //                     <input class="jian" type="button" value="－">
+            //                     <span class="shu">${ss.result[i].num}</span>
+            //                     <input class="up" type="button" value="+">
+            //                 </td>
+            //                 <td class="je">${ss.result[i].danjia * ss.result[i].num}</td>
+            //                 <td class="red">删除</td>
+            //                 </tr>`
+                            
+            //             )
+            //         }
+                    
+            //     $(".up").click(function(){
+            //         var num = +($(this).prev().html())+1
+            //         $(this).prev().html(num);
+            //         var je = +$(this).parent().prev().html();
+            //         $(this).parent().next().html(je * $(this).prev().html());
+            //         jie();
+                
+            //     })
+            //     $(".jian").click(function(){
+            //         var num = +($(this).next().html())-1
+            //         if(num > 0){
+            //             $(this).next().html(num);
+            //             var je = +$(this).parent().prev().html();
+            //             $(this).parent().next().html(je * $(this).next().html());
+            //         }
+            //         jie();
+            //     })
+            //     $(".red").click(function(){
+            //         $(this).parent().remove();
+            //     })
+            //     // 全选
+            //     $(".all").on("click",function(){
+            //         var a = $(".all")[0].checked;
+            //         // console.log(a)
+            //         $(".dx").each(function(){
+            //             $(this)[0].checked = a;
+            //         })
+            //         jie();
+            //     })
+            //     // 单选
+            //     $(".dx").on("click",function(){
+            //         var i = 0;
+            //         $(".dx").each(function(){
+            //             if($(this)[0].checked == false){
+            //             $(".all")[0].checked = false;
+            //             }else{
+            //                 i += 1;
+            //                 // console.log(i)
+            //                 if(i == $(".dx").length){
+            //                     $(".all")[0].checked = true;
+            //                 }
+            //             }
+            //         })
+
+            //         jie();
+            //     })
+
+            //     function jie(){
+            //         var zje = 0;
+            //         var zs = 0;
+            //         $(".tr1").each(function(){
+            //             if($(this).find(".dx")[0].checked === true){
+            //                 zje += +$(this).find(".je").html();
+            //                 zs += parseInt($(this).find(".shu").html())
+            //             }
+            //         })
+            //         $(".zongs").html(zs);
+            //         $(".zongje").html(zje.toFixed(1))
+            //         }    
+            //     }
+                
+            // })
+                var aa = JSON.parse(localStorage.getItem("cp"))
+                console.log(aa)
+                for(var i = 0; i < aa.length; i++){
+                        $(".over").before(
+                            `<tr class="tr1">
+                            <td><input class="dx" type="checkbox"></td>
+                            <td class="td2"><img src="${aa[i].img}" alt=""><p>${aa[i].xx}</p></td>
+                            <td class="dj">${(Number(aa[i].jg)).toFixed(1)}</td>
+                            <td class="slh cf">
+                                <input class="jian" type="button" value="－">
+                                <span class="shu">${aa[i].sl}</span>
+                                <input class="up" type="button" value="+">
+                            </td>
+                            <td class="je">${(aa[i].jg * aa[i].sl).toFixed(1)}</td>
+                            <td class="red">删除</td>
+                            </tr>`
+                            
+                        )
+                }
+
+
+
+            $(".up").click(function(){
+                var num = +($(this).prev().html())+1
+                $(this).prev().html(num);
+                var je = +$(this).parent().prev().html();
+                $(this).parent().next().html(je * $(this).prev().html());
+                jie();
+        
+            })
+            $(".jian").click(function(){
+                var num = +($(this).next().html())-1
+                if(num > 0){
+                    $(this).next().html(num);
+                    var je = +$(this).parent().prev().html();
+                    $(this).parent().next().html(je * $(this).next().html());
+                }
+                jie();
+            })
+            // 全选
+            $(".all").on("click",function(){
+                var a = $(".all")[0].checked;
+                // console.log(a)
+                $(".dx").each(function(){
+                    $(this)[0].checked = a;
+                })
+                jie();
+            })
+            // 单选
+            $(".dx").on("click",function(){
+                var i = 0;
+                $(".dx").each(function(){
+                    if($(this)[0].checked == false){
+                    $(".all")[0].checked = false;
+                    }else{
+                        i += 1;
+                        // console.log(i)
+                        if(i == $(".dx").length){
+                            $(".all")[0].checked = true;
+                        }
+                    }
+                })
+                
+                jie();
+            })
+
+            function jie(){
+                var zje = 0;
+                var zs = 0;
+                $(".tr1").each(function(){
+                    if($(this).find(".dx")[0].checked === true){
+                        zje += +$(this).find(".je").html();
+                        zs += parseInt($(this).find(".shu").html())
+                    }
+                })
+                $(".zongs").html(zs);
+                $(".zongje").html(zje.toFixed(1))
+            }
+            $(".red").click(function(){
+                    $(this).parent().remove();
+                    
+                })
+           
+            $(".maidan").click(function(){
+                location.href = "dizhi.html";
+                var js = []
+                for(var i = 0; i < $(".dx").length; i++){
+                    var a = $(".dx")[i].checked;
+                    console.log(a)
+                    if(a){
+                        js.push({
+                            img:$(".td2")[i].src,
+                            jg:$($(".dj")[i]).text(),
+                            sl:$($(".shu")[i]).text()
+                        })
+                    }
+                }
+                console.log(js)
+                localStorage.setItem("jiesuan",JSON.stringify(js))
+            })
+            
+        </script>
+    </div>
+</body>
+</html>

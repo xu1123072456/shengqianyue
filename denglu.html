@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./验证码/css/verify.css">
+    <script src="./js/jQuery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./验证码/js/verify.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="back">
+        <iframe id="iframe" src="https://www.jq22.com/demo/jQuery-yezi-141217210850" frameborder="0" width="100%"></iframe>
+        <div class="zhuti">
+            <div class="welcome">
+                <h3>欢迎来到拼多多商城</h3>
+                <div class="join">
+                    <a href="javascript:;">登录</a>
+                    <span>|</span>
+                    <a target="blank" href="zhuce.html">注册</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="dl">
+                    <h3>用户登录</h3>
+                     <form>
+                         <div class="form-group">
+                           <label for="exampleInputEmail1">用户名</label>
+                           <input type="texr" class="form-control yhm" id="exampleInputEmail1" placeholder="请输入用户名">
+                         </div>
+                         <div class="form-group">
+                           <label for="exampleInputPassword1">登录密码</label>
+                           <input type="password" class="form-control pass" id="exampleInputPassword1" placeholder="Password">
+                         </div>
+                         <div id="mpanel4" style="margin-top:30px;">
+                        </div>
+                         <!-- <div class="form-group">
+                            <label for="exampleInputEmail1">验证码</label>
+                           <input type="text" class="form-control" id="exampleInputPassword1" placeholder="请输入验证码">
+                         </div> -->
+                         <div class="zhu">
+                            <button type="button" class="dll btn btn-default">马上登录</button>
+                            <button type="button" class="btn btn-default">没有账号？点我注册</button>
+                         </div>
+                         
+                        
+                     </form>
+                 </div>
+             </div>
+        </div>
+    </div>
+
+
+
+  <script>
+      var suo = false;
+       $('#mpanel4').slideVerify({
+            type: 2, //类型
+            vOffset: 5, //误差量，根据需求自行调整
+            vSpace: 5, //间隔
+            imgName: ['1.jpg', '2.jpg'],
+            imgSize: {
+                width: '100%',
+                height: '150px',
+            },
+            blockSize: {
+                width: '30px',
+                height: '30px',
+            },
+            barSize: {
+                width: '100%',
+                height: '40px',
+            },
+            ready: function() {},
+            success: function() {
+                alert('验证成功，点击登录！');
+                suo = true;
+                //......后续操作
+            },
+            error: function() {
+                		        	alert('验证失败！');
+            }
+
+        });
+
+      $(".dll").click(function(){
+            if(suo && $(".yhm") && $(".pass")){
+                $.ajax({
+                  url:"http://192.168.1.107:3000/users/login",
+                  type:"post",
+                  data:{
+                        username:$(".yhm").val(),
+                        password:$(".pass").val()
+                  },
+                  success:function(res){
+                    // console.log(res)
+                    if(res.state == 2){
+                        alert("用户名或密码错误");
+                    }else if(res.state == 0){
+                        alert("登陆成功");
+                        window.location.href = "index.html";
+                        var aa = {
+                            "use":$(".yhm").val(),
+                            "token":res.token,
+                        };
+                        localStorage.setItem("dl",JSON.stringify(aa))
+                    }
+                  }
+
+                })
+            }else(
+                alert("信息有误，登录失败")
+            )
+          
+      })
+  </script>
+</body>
+</html>
